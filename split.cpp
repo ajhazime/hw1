@@ -18,6 +18,18 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+
+  //Base Case in is empty
+  if(in == NULL){
+    return;
+  }
+  //Even Valules
+  if(in->value == 0 || (in->value % 2) == 0){
+    if(odds == NULL){
+      head = new Node(in->value)
+    }
+    newNode = new Node()
+  }
 }
 
 /* If you needed a helper function, write it here */
