@@ -14,40 +14,31 @@ the function below should be the only one in this file.
 
 /* Add a prototype for a helper function here if you need */
 
+bool isEven(int n);
+
 void split(Node *&in, Node *&odds, Node *&evens)
 {
   /* Add code here */
   // WRITE YOUR CODE HERE
 
-  // Base Case Node_in is empty
+  /* Base Case Node_in is empty */
   if (!in)
   {
-    evens = nullptr;
-    odds = nullptr;
     return;
   }
-
-  Node *nextNode = in->next;
-  in->next = nullptr;
-
-  Node *evenNode = nullptr;
-  Node *oddNode = nullptr;
-  split(in, odds, evens);
-
-  if(isEven(in->value)){
-    in->next = evenNode;
-    evens = in;
-    odds = oddNode;
+  else if (isEven(in->value))
+  { // if the value is even
+    evens = in; //set evens to in's head
+    return split(in->next, odds, in->next); //shift to next in_node and evens_node
   } else {
-    in->next = oddNode;
     odds = in;
-    evens = evenNode;
+    return split(in->next, in->next, evens);//shift to next in_node and odds_node
   }
 }
 
 /* If you needed a helper function, write it here */
 
-// Helper function to determine even/odd numbers
+/* Helper function to determine even/odd numbers */
 bool isEven(int n)
 {
   if (n % 2 == 0 || n == 0)

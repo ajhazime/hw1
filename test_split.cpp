@@ -11,11 +11,13 @@ g++ split.cpp test_split.cpp -o test_split
 
 #include "split.h"
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-    Node* linkedListIn = new Node(0, nullptr);
-    for (int i = 0, i < 25; i++){
-        Node* newNode = new Node(i, nullptr);
-        
+    Node *linkedListIn = new Node(0, nullptr);
+    for(int i = 0; i < 25; i++)
+    {
+        Node *newNode = new Node(i, nullptr);
     }
+
+    return 0;
 }
