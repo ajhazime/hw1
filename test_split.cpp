@@ -9,22 +9,34 @@ You can compile this file like this:
 g++ split.cpp test_split.cpp -o test_split
 */
 #include <cstddef>
+#include <iostream>
 #include "split.h"
 
 int main(int argc, char* argv[])
 {
-  Node node5(5, NULL);
-  Node node4(4, &node5);
-  Node node3(3, &node4);
-  Node node2(2, &node3);
-  Node node1(1, &node2);
-  Node Node0(0, &node1);
-  Node* head = &Node0;
+  // Node node5(5, NULL);
+  // Node node4(4, &node5);
+  // Node node3(3, &node4);
+  // Node node2(2, &node3);
+  // Node node1(1, &node2);
+  // Node node0(0, &node1);
+  // Node* head = &node0;
+  Node* head = nullptr;
 
   Node* evens = nullptr;
   Node* odds = nullptr;
 
   split(head, evens, odds);
-  std::cout << heads->value << '\n' << odds->value << std::endl;
+  
+
+  while(evens != nullptr){
+    std::cout << "Evens: " << evens->value << '\n';
+    evens = evens->next;
+  }
+
+  while(odds != nullptr){
+    std::cout << "Odds: " << odds->value << '\n';
+    odds = odds->next;
+  }
   return 0;
 }
