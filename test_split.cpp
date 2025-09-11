@@ -12,8 +12,9 @@ g++ split.cpp test_split.cpp -o test_split
 #include <iostream>
 #include "split.h"
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
+
   // Node node5(5, NULL);
   // Node node4(4, &node5);
   // Node node3(3, &node4);
