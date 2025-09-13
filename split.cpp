@@ -22,17 +22,20 @@ void split(Node *&in, Node *&odds, Node *&evens)
   // WRITE YOUR CODE HERE
 
   /* Base Case Node_in is empty */
-  if (!in)
-  {
+  if (!in){
     return;
-  }
-  else if (isEven(in->value))
-  { // if the value is even
-    evens = in; //set evens to in's head
-    return split(in->next, odds, in->next); //shift to next in_node and evens_node
+  } 
+  
+  Node* currentNode = in; //current node 
+  in = in->next; //moving in node by 1 to the right
+  currentNode->next = nullptr; //detaching current node->next to nullptr
+
+  if (isEven(currentNode->value)) { // if the value is even
+    evens = currentNode; //set evens to current node
+    return split(in, odds, evens->next); //pass updated in, and nullptr odds/evens
   } else {
-    odds = in;
-    return split(in->next, in->next, evens);//shift to next in_node and odds_node
+    odds = currentNode;
+    return split(in, odds->next, evens);//pass updated in, and nullptr odds/evens
   }
 }
 
